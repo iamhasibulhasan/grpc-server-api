@@ -1,4 +1,4 @@
-using GrpcServer.Services;
+using grpc_server_api.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,8 +17,8 @@ var app = builder.Build();
 
 
 // Configure the HTTP request pipeline.
-app.MapGrpcService<GreeterService>();
-app.MapGet("/", () => "Communication with gRPC endpoints must be made through a gRPC client.");
+app.MapGrpcService<HelloService>();
+app.MapGet("/grpc", () => "Communication with gRPC endpoints must be made through a gRPC client.");
 
 
 // Configure the HTTP request pipeline.

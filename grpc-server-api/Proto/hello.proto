@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option csharp_namespace = "HelloServer";
+import "google/protobuf/empty.proto"; 
+
+package hello;
+
+service Hello {
+  rpc SayHello (HelloMessageRequest) returns (HelloMessageReply);
+  rpc SayTest(google.protobuf.Empty) returns (TestReply); // import "google/protobuf/empty.proto"; 
+}
+message HelloMessageRequest{
+	string name = 1;
+}
+message HelloMessageReply{
+	string message = 1;
+}
+message TestReply {
+  int32  id = 1;
+  string name = 2;
+  string company = 3;
+}
