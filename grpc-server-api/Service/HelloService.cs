@@ -33,5 +33,17 @@ namespace grpc_server_api.Service
             };
             return Task.FromResult(reply);
         }
+
+        public override Task<CreateListResponse> ShowList(Google.Protobuf.WellKnownTypes.Empty request, ServerCallContext context)
+        {
+            var response = new CreateListResponse();
+
+            // Add sample data (replace with your actual data source)
+            response.List.Add(new CreateList { Id = 1, Name = "First Item", Company = "Description 1" });
+            response.List.Add(new CreateList { Id = 2, Name = "Second Item", Company = "Description 2" });
+            response.List.Add(new CreateList { Id = 3, Name = "Third Item", Company = "Description 3" });
+
+            return Task.FromResult(response);
+        }
     }
 }

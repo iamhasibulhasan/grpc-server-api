@@ -8,6 +8,7 @@ package hello;
 service Hello {
   rpc SayHello (HelloMessageRequest) returns (HelloMessageReply);
   rpc SayTest(google.protobuf.Empty) returns (TestReply); // import "google/protobuf/empty.proto"; 
+  rpc ShowList(google.protobuf.Empty) returns (CreateListResponse); 
 }
 message HelloMessageRequest{
 	string name = 1;
@@ -19,4 +20,12 @@ message TestReply {
   int32  id = 1;
   string name = 2;
   string company = 3;
+}
+message CreateList{
+  int32  id = 1;
+  string name = 2;
+  string company = 3;
+}
+message CreateListResponse{
+ repeated CreateList list = 1;
 }
